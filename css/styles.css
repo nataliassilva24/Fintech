@@ -1,0 +1,99 @@
+/* Estilos personalizados */
+
+body {
+    padding-top: 80px; /* Para compensar a altura da barra de navegação */
+}
+
+.navbar-brand {
+    color: #003A70; /* Cor azul para o texto Mobills na barra de navegação */
+}
+
+.navbar-brand img {
+    margin: 0; /* Remover margens do logo na barra de navegação */
+}
+
+.sidebar-top {
+    background-color: #FFFFFF; /* Cor de fundo branco para a sidebar */
+    padding: 20px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar-top img {
+    max-width: 100%;
+}
+
+.profile-image {
+    width: 30px;
+    height: 30px;
+    background-color: #003A70; /* Cor de fundo azul para a imagem de perfil */
+    border-radius: 50%; /* Bordas arredondadas para criar perfil circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #FFFFFF; /* Cor do texto branco para as iniciais */
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #003A70; /* Cor de fundo azul */
+    color: #FFFFFF; /* Cor do texto branco */
+    padding: 10px 0;
+}
+
+.custom-container {
+    position: fixed;
+    top: 30%;
+    left: 16%;
+    transform: translate(-50%, -50%);
+    width: 40%; /* Ajuste a largura conforme necessário */
+    max-width: 450px; /* Largura máxima */
+    z-index: 1050; /* Z-index para sobrepor outros elementos */
+}
+
+.custom-container-rosca {
+    position: fixed;
+    top: 45%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    width: 60%; /* Ajuste a largura conforme necessário */
+    max-width: 600px; /* Largura máxima */
+    min-height: 600px;
+    z-index: 1050; /* Z-index para sobrepor outros elementos */
+}
+
+.custom-container-transacoes {
+    position: fixed;
+    top: 30%;
+    left: 82%;
+    transform: translate(-50%, -50%);
+    width: 60%; /* Ajuste a largura conforme necessário */
+    max-width: 500px; /* Largura máxima */
+    z-index: 1050; /* Z-index para sobrepor outros elementos */
+}
+
+#pieChart {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .custom-container {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .custom-modal {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+}
+
+.custom-modal {
+    max-width: 600px;
+    margin: auto;
+}
