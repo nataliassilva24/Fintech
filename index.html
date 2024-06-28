@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintech - Controle Financeiro</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/custom-styles.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Barra de navegação -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top px-0">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center fintech-logo" href="#">
+                <img src="img/logo.png" alt="Logo" width="30" height="30" class="mr-2">
+                <span class="text-primary font-weight-bold text-uppercase fintech-text">Fintech</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#transacoes">Transações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#adicionar">Adicionar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#receita">Receita</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#despesas">Despesas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#relatorios">Relatórios</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Selecionar Mês
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Janeiro/2024</a>
+                            <a class="dropdown-item" href="#">Fevereiro/2024</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-link text-dark profile-button" id="profileButton" aria-label="Abrir perfil">
+                            <div class="profile-image">
+                                <span class="profile-initials">NS</span>
+                            </div>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal de informações financeiras -->
+    <div class="container mt-5 custom-container">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content custom-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel1">Informações Financeiras</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <h4 class="text-black">Saldo em Carteira</h4>
+                        <h2 class="text-black mb-3">R$ 4.138,67</h2>
+                        <button class="btn btn-link toggle-eye" id="toggleEye">
+                            <i class="fa fa-eye" aria-hidden="true"></i> Mostrar Valores
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <h5 class="text-success">Receita</h5>
+                            <p class="text-success">R$ 6.767,14</p>
+                        </div>
+                        <div class="col text-center">
+                            <h5 class="text-danger">Despesa</h5>
+                            <p class="text-danger">R$ 1.178,44</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Segundo container com gráfico de rosca -->
+    <div class="container mt-5 custom-container-rosca">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content custom-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel2">Distribuição de Gastos por Categoria</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <canvas id="pieChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal tabela de transações -->
+    <div class="container mt-5 custom-container-transacoes">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content custom-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel3">Transações</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Valor</th>
+                                    <th scope="col">Categoria</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/06/2024</td>
+                                    <td>Compra no mercado</td>
+                                    <td>R$ 150,00</td>
+                                    <td>Mercado</td>
+                                </tr>
+                                <tr>
+                                    <td>05/06/2024</td>
+                                    <td>Presente Aniversário</td>
+                                    <td>R$ 247,00</td>
+                                    <td>Presente</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="text-center mt-4">
+        <p>&copy; 2024 Fintech. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var pieData = {
+            labels: ['Mercado', 'Saúde', 'Vestuário', 'Presente', 'Viagem'],
+            datasets: [{
+                data: [20, 15, 25, 10, 30],
+                backgroundColor: ['#007bff', '#28a745', '#dc3545', '#ffc107', '#17a2b8'],
+                hoverBackgroundColor: ['#0056b3', '#218838', '#c82333', '#ffb400', '#138496']
+            }]
+        };
+
+        var pieOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                position: 'right', // Posiciona a legenda à direita do gráfico
+            }
+        };
+
+        var ctx = document.getElementById('pieChart').getContext('2d');
+        var pieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: pieData,
+            options: pieOptions
+        });
+    </script>
+</body>
+</html>
