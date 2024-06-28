@@ -1,0 +1,22 @@
+{
+  "name": "fiap-fintech",
+  "version": "1.0.0",
+  "description": "Project to finance control",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nataliassilva24/Fintech.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nataliassilva24/Fintech/issues"
+  },
+  "homepage": "https://github.com/nataliassilva24/Fintech#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}
